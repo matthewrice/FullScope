@@ -1,8 +1,8 @@
 var Backbone = require('backbone');
 
 
-Var User = Backbone.Model.extend({
-  urlRoot: 'https://mrice.herokuapp.com/users'
+var User = Backbone.Model.extend({
+  urlRoot: 'https://mrice.herokuapp.com/User'
 },{
   login: function(email, password, callbacks){
     var loggedInUser = new User();

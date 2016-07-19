@@ -7,7 +7,7 @@ var AccountHeader = require('./account-header.jsx');
 
 
 var Signup = React.createClass({
-  handleNewUser: function(e){
+  handleSignup: function(e){
     e.preventDefault();
 
     var name = $('#user-name').val();
@@ -21,7 +21,7 @@ var Signup = React.createClass({
     console.log('A new user signed up!: ', newUser);
 
     newUser.save().done(function(){
-      router.navigate('login', {trigger: true});
+      router.navigate('dashboard', {trigger: true});
     });
   },
   render: function(){
@@ -33,7 +33,7 @@ var Signup = React.createClass({
         <div className="row">
           <div className="col-xs-offset-4 col-xs-4">
             <div className="signup">
-              <form onSubmit={this.handleNewUser} id="signup">
+              <form onSubmit={this.handleSignup} id="signup">
                 <div className="signup-title">Sign up</div>
                 <input name="name" id="user-name" className="user-name" type="text" placeholder="Full Name" /><br/>
                 <input name="email" id="user-email" className="user-email" type="email" placeholder="Email" /><br/>

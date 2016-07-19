@@ -1,10 +1,27 @@
 var React = require('react');
 var AccountHeader = require('./account-header.jsx');
+var User = require('../models/user');
 
 
 // top level login.jsx component
 var Login = React.createClass({
+  handleLogin: function(){
+    var email = $('#user-email').val();
+    var password = $('#user-password').val();
 
+    var router = this.props.router;
+
+    User.login(email, password, {
+      success: function(user){
+        console.log('User logged in: ', user);
+        router.navigate('dashboard', {trigger: true});
+      },
+      error: function(user, error){
+        alert("Either the email or password you enter doesn't match our records.  Please try again.");
+        console.log('Check error message: ', error);
+      }
+    });
+  },
   render: function(){
 
     return (
@@ -14,7 +31,7 @@ var Login = React.createClass({
         <div className="row">
           <div className="col-xs-offset-4 col-xs-4">
             <div className="signup">
-              <form onSubmit={this.handleNewUser} id="login">
+              <form onSubmit={this.handleLogin} id="login">
                 <div className="signup-title">Log In</div>
                 <input name="email" id="user-email" className="user-email" type="email" placeholder="Email" /><br/>
                 <input name="password" id="user-password" className="user-password" type="password" placeholder="Password" /><br/>
