@@ -1,17 +1,19 @@
 var React = require('react');
-var AccountHeader = require('./account-header.jsx');
+var $ = require('jquery');
+var AccountHeader = require('./app-header.jsx');
 var User = require('../models/user');
 
 
 // top level login.jsx component
 var Login = React.createClass({
-  handleLogin: function(){
-    var email = $('#user-email').val();
+  handleLogin: function(e){
+    e.preventDefault();
+    var username = $('#user-email').val();
     var password = $('#user-password').val();
 
     var router = this.props.router;
 
-    User.login(email, password, {
+    User.login(username, password, {
       success: function(user){
         console.log('User logged in: ', user);
         router.navigate('dashboard', {trigger: true});
@@ -33,7 +35,7 @@ var Login = React.createClass({
             <div className="signup">
               <form onSubmit={this.handleLogin} id="login">
                 <div className="signup-title">Log In</div>
-                <input name="email" id="user-email" className="user-email" type="email" placeholder="Email" /><br/>
+                <input name="username" id="user-email" className="user-email" type="email" placeholder="Email" /><br/>
                 <input name="password" id="user-password" className="user-password" type="password" placeholder="Password" /><br/>
                 <input type="submit" className="submit-signup" value="Log In" /><br/>
                 <div className="optional-login">or</div>
