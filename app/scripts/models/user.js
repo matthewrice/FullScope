@@ -4,9 +4,9 @@ var Backbone = require('backbone');
 var User = Backbone.Model.extend({
   urlRoot: 'https://mrice.herokuapp.com/classes/_User'
 },{
-  login: function(username, password, firstName, lastName, callbacks){
+  login: function(username, password, callbacks, firstName, lastName, role){
     var loggedInUser = new User();
-    var queryString = jQuery.param({'username': username, 'password': password, 'firstName': firstName, 'lastName': lastName});
+    var queryString = jQuery.param({'username': username, 'password': password, 'firstName': firstName, 'lastName': lastName, 'role': role});
 
     loggedInUser.urlRoot = 'https://mrice.herokuapp.com/login?' + queryString;
 

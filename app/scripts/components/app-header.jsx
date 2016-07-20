@@ -8,16 +8,8 @@ var AccountHeader = React.createClass({
     return (
       <div>
         <nav className="row account-header">
-          <div className="col-xs-3">
-            <span className="">
-              <a href="#">Give a Boost</a>
-            </span>
-            <span className="">
-              <a href="#">Get a Boost</a>
-            </span>
-          </div>
-          <div className="col-xs-offset-2 col-xs-2">
-            <a href="#dashboard">Boost</a>
+          <div className="col-xs-offset-5 col-xs-2">
+            <a href="#dashboard">FullScope</a>
           </div>
           <div className="col-xs-offset-2 col-xs-2">
             <span className="">
