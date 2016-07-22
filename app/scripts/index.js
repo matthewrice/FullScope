@@ -9,6 +9,7 @@ $.ajaxSetup({
    beforeSend: function(xhr){
      xhr.setRequestHeader("X-Parse-Application-Id", "tiyfrontendclass");
      xhr.setRequestHeader("X-Parse-REST-API-Key", "demodayiscoming");
+     xhr.setRequestHeader("X-Parse-Session-Token", "");
    }
  });
 

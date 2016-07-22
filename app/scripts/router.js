@@ -8,6 +8,8 @@ var $ = require('jquery');
 var Signup = require('./components/signup.jsx');
 var Login = require('./components/login.jsx');
 var Dashboard = require('./components/dashboard.jsx');
+var RecipientCreateProfile = require('./components/recipient-create-profile.jsx');
+var SupporterCreateProfile = require('./components/supporter-create-profile.jsx');
 
 // router for entire app
 var Router = Backbone.Router.extend({
@@ -15,7 +17,9 @@ var Router = Backbone.Router.extend({
     '': 'dashboard',
     'dashboard': 'dashboard',
     'signup': 'signup',
-    'login': 'login'
+    'login': 'login',
+    'recipientcreateprofile': 'recipientCreateProfile',
+    'supportercreateprofile': 'supporterCreateProfile'
   },
   dashboard: function(){
     var self=this;
@@ -35,6 +39,20 @@ var Router = Backbone.Router.extend({
     var self=this;
     ReactDOM.render(
       React.createElement(Login, {router: self}),
+      document.getElementById('app')
+    );
+  },
+  recipientCreateProfile: function(){
+    var self=this;
+    ReactDOM.render(
+      React.createElement(RecipientCreateProfile, {router: self}),
+      document.getElementById('app')
+    )
+  },
+  supporterCreateProfile: function(){
+    var self=this;
+    ReactDOM.render(
+      React.createElement(SupporterCreateProfile, {router: self}),
       document.getElementById('app')
     );
   }
