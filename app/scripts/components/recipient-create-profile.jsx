@@ -1,5 +1,6 @@
 var React = require('react');
-
+var trumbowyg = require('trumbowyg');
+console.log(trumbowyg);
 
 
 var RecipientCreateProfile = React.createClass({
@@ -9,6 +10,11 @@ var RecipientCreateProfile = React.createClass({
   // componentWillMount: function(){
   //
   // },
+  componentDidMount: function(){
+    jQuery.trumbowyg.svgPath = 'fonts/icons.svg';
+    jQuery('#story-input').trumbowyg();
+
+  },
   // handleCreateProfile: function(){
   //
   // },

@@ -7,6 +7,15 @@ var AppHeader = require('./app-header.jsx');
 
 
 var Signup = React.createClass({
+  getInitialState: function(){
+    return {
+      role: 'supporter'
+    };
+  },
+  handleChange: function(e){
+    console.log('hi');
+    this.setState({role: e.target.value});
+  },
   handleSignup: function(e){
     e.preventDefault();
 
@@ -14,12 +23,7 @@ var Signup = React.createClass({
     var password = $('#user-password').val();
     var firstName = $('#firstname').val();
     var lastName = $('#lastname').val();
-    var form = e.target;
-    if (form.elements.recipient.value) {
-      var role = 'recipient';
-    } else if (form.elements.supporter.value) {
-      var role = 'supporter';
-    }
+    var role = this.state.role;
 
     var router = this.props.router;
 
@@ -31,13 +35,12 @@ var Signup = React.createClass({
       router.navigate('dashboard', {trigger: true});
     })
     .error(function(error){
-      alert("That user already exists.  Please create a new user.");
+      alert('You have an error. Check your log.');
       console.log('Check error message: ', error);
     });
   },
   render: function(){
-
-    return(
+    return (
       <div>
         <AppHeader />
 
@@ -52,13 +55,15 @@ var Signup = React.createClass({
                 <input name="username" id="username-is-email" className="username-is-email" type="email" require="true" placeholder="Email" /><br/>
                 <input name="password" id="user-password" className="user-password" type="password" require="true" placeholder="Password" /><br/>
                 <div className="user-choices input-group">
-                  <label className="radio-inline">
-                    <input type="radio" name="recipient" id="inlineRadio1" value="recipient"/>
+
+                  <label className="radio-inline" htmlFor="role1">
+                    <input onChange={this.handleChange} checked={this.state.role === 'recipient'} type="radio" name="role" id="role1" value="recipient"/>
                     <span>Recipient</span>
                   </label>
-                  <label className="radio-inline">
-                    <input type="radio" name="supporter" id="inlineRadio2" value="supporter"/>
-                  <span>Supporter</span>
+
+                  <label className="radio-inline" htmlFor="role2">
+                    <input onChange={this.handleChange} checked={this.state.role === 'supporter'} type="radio" name="role" id="role2" value="supporter"/>
+                    <span>Supporter</span>
                   </label>
                 </div>
                 <input type="submit" className="submit-signup" value="Sign up" /><br/>
@@ -85,3 +90,11 @@ var Signup = React.createClass({
 
 
 module.exports = Signup;
+
+
+// var form = e.target;
+// if (form.elements.recipient.value) {
+//   var role = 'recipient';
+// } else if (form.elements.supporter.value) {
+//   var role = 'supporter';
+// }

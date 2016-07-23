@@ -5,6 +5,7 @@ $icon-font-path: '../../node_modules/bootstrap-sass/assets/fonts/bootstrap/';
 // Import Bootstrap
 @import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
 
+@import '../../node_modules/trumbowyg/dist/ui/sass/trumbowyg.scss';
 
 *,
 *::before,
@@ -120,19 +121,24 @@ img {
   }
 }
 
-.recipient-story-form{
-  height: 200px;
-  border-bottom: 1px solid rgb(188,189,164);
-  border-left: 1px solid rgb(188,189,164);
-  border-right: 1px solid rgb(188,189,164);
-  padding-left: 10%;
-  padding-right: 10%;
-  padding-top: 4.5%;
+// .recipient-story-form{
+//   height: 200px;
+//   border-bottom: 1px solid rgb(188,189,164);
+//   border-left: 1px solid rgb(188,189,164);
+//   border-right: 1px solid rgb(188,189,164);
+//   padding-left: 10%;
+//   padding-right: 10%;
+//   padding-top: 4.5%;
+//
+//   // .story-input{
+//   //   height: 150px;
+//   //   width: 100%;
+//   // }
+// }
 
-  .story-input{
-    height: 150px;
-    width: 100%;
-  }
+.trumbowyg-box{
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .recipient-needs-form{
