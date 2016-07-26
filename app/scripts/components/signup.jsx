@@ -58,7 +58,7 @@ var Signup = React.createClass({
 
                   <label className="radio-inline" htmlFor="role1">
                     <input onChange={this.handleChange} checked={this.state.role === 'recipient'} type="radio" name="role" id="role1" value="recipient"/>
-                    <span>Recipient</span>
+                    <span>Recipient</span>``
                   </label>
 
                   <label className="radio-inline" htmlFor="role2">

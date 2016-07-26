@@ -28,6 +28,21 @@ var User = Backbone.Model.extend({
       callbacks.error(loggedInUser, error);
     });
   }
+},{
+  restore: function(){
+    var token = localStorage.getItem('sessionToken');
+    if(token) {
+      this.login({sessionToken: token});
+    }
+  },
+  invalidate: function(){
+    localStorage.removeItem('sessionToken');
+    this.trigger('invalidationSucceeded');
+    window.location.reload();
+  },
+  isAuthenticated: function(){
+    return !!this.get('loggedInUser');
+  }
 });
 
 module.exports = User;

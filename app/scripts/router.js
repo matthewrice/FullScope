@@ -4,6 +4,8 @@ var ReactDOM = require('react-dom');
 var Backbone = require('backbone');
 var $ = require('jquery');
 
+var User = require('./models/user');
+
 // components being used in the router
 var Signup = require('./components/signup.jsx');
 var Login = require('./components/login.jsx');
@@ -20,6 +22,10 @@ var Router = Backbone.Router.extend({
     'login': 'login',
     'recipientcreateprofile': 'recipientCreateProfile',
     'supportercreateprofile': 'supporterCreateProfile'
+  },
+  intialize: function(){
+    var user = new User();
+    user.restore();
   },
   dashboard: function(){
     var self=this;
