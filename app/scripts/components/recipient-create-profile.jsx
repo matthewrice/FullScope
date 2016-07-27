@@ -14,7 +14,8 @@ var RecipientCreateProfile = React.createClass({
       'city': '',
       'state': '',
       'website': '',
-      'story': ''
+      'story': '',
+      'selectedNeeds': []
     }
   },
   addFamilyName: function(e){
@@ -32,9 +33,26 @@ var RecipientCreateProfile = React.createClass({
   addWebsite: function(e){
     this.setState({'website': e.target.value});
   },
+  handleSelectedNeeds: function(e){
+    // var self = this;
+    // jQuery('.recipient-needs-form input:checked').each(function(){
+    //   self.state.selectedNeeds.push(e.target.value);
+    //   console.log(self.state.selectedNeeds);
+    // });
+    //this.setState({'selectedNeeds': e.target.value});
+    if(e.target.checked === true){
+      this.state.selectedNeeds.push(e.target.value)
+      console.log(this.state.selectedNeeds);
+    }else{
+      e.target.checked === false
+    }
+    // jQuery(".need").each(function(){
+    // jQuery(".need").click()
+    // });
+  },
   handleSubmit: function(e){
     e.preventDefault();
-    console.log(this.state.story);
+    console.log(this.state.selectedNeeds);
     var recipientProfile = new RecipientProfile();
     var router = this.props.router;
     var recipient = JSON.parse(localStorage.getItem('user'));
@@ -45,6 +63,7 @@ var RecipientCreateProfile = React.createClass({
     recipientProfile.set('state', this.state.state);
     recipientProfile.set('website', this.state.website);
     recipientProfile.set('story', jQuery('#story').trumbowyg('html'));
+    recipientProfile.set('selectedNeeds', this.state.selectedNeeds);
 
     recipientProfile.setPointer('recipient', recipient, '_User');
 
@@ -84,7 +103,33 @@ var RecipientCreateProfile = React.createClass({
               </div>
               <div className="recipient-needs-form">
                 <h3 className="share-needs">Share Your Needs </h3>
-
+                <label className="checkbox-inline need-labels" htmlFor="childCare">
+                  <input onChange={this.handleSelectedNeeds} type="checkbox" name="needs" id="childCare" className="need" value="childCare"></input><span>Child Care</span>
+                </label>
+                <label className="checkbox-inline need-labels" htmlFor="clothes">
+                  <input onChange={this.handleSelectedNeeds} type="checkbox" name="needs" id="clothes" className="need" value="clothes"></input><span>Clothes</span>
+                </label>
+                <label className="checkbox-inline need-labels" htmlFor="financialHelp">
+                  <input onChange={this.handleSelectedNeeds} type="checkbox" name="needs" id="financialHelp" className="need" value="financialHelp"></input><span>Financial Help</span>
+                </label>
+                <label className="checkbox-inline need-labels" htmlFor="groceries">
+                  <input onChange={this.handleSelectedNeeds} type="checkbox" name="needs" id="groceries" className="need" value="groceries"></input><span>Groceries</span>
+                </label>
+                <label className="checkbox-inline need-labels" htmlFor="houseCleaning">
+                  <input onChange={this.handleSelectedNeeds} type="checkbox" name="needs" id="houseCleaning" className="need" value="houseCleaning"></input><span>House Cleaning</span>
+                </label>
+                <label className="checkbox-inline need-labels" htmlFor="lawnCare">
+                  <input onChange={this.handleSelectedNeeds} type="checkbox" name="needs" id="lawnCare" className="need" value="lawnCare"></input><span>Lawn Care</span>
+                </label>
+                <label className="checkbox-inline need-labels" htmlFor="meals">
+                  <input onChange={this.handleSelectedNeeds} type="checkbox" name="needs" id="meals" className="need" value="meals"></input><span>Meals</span>
+                </label>
+                <label className="checkbox-inline need-labels" htmlFor="mothersHelper">
+                  <input onChange={this.handleSelectedNeeds} type="checkbox" name="needs" id="mothersHelper" className="need" value="mothersHelper"></input><span>Mother's Helper</span>
+                </label>
+                <label className="checkbox-inline need-labels" htmlFor="transportation">
+                  <input onChange={this.handleSelectedNeeds} type="checkbox" name="needs" id="transportation" className="need" value="transportation"></input><span>Transportation</span>
+                </label>
               </div>
               <div className="col-md-offset-2 col-md-8 create-button-container">
                 <input type="submit" className="user-profile-create-button" value="Save Profile" />
