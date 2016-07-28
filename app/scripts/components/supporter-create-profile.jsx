@@ -1,6 +1,6 @@
 var React = require('react');
 
-var SupporterProfile = require('../models/supporter-profile-model');
+var SupporterProfileModel = require('../models/supporter-profile-model').SupporterProfileModel;
 
 
 var SupporterCreateProfile = React.createClass({
@@ -31,7 +31,7 @@ var SupporterCreateProfile = React.createClass({
   handleSubmit: function(e){
     e.preventDefault();
 
-    var supporterProfile = new SupporterProfile();
+    var supporterProfile = new SupporterProfileModel();
     var router = this.props.router;
     var supporter = JSON.parse(localStorage.getItem('user'));
 
@@ -45,6 +45,7 @@ var SupporterCreateProfile = React.createClass({
 
     supporterProfile.save().done(function(){
       console.log('Supporter Profile: ', supporter);
+      router.navigate('supporter/:id', {trigger: true});
     });
   },
   render: function(){

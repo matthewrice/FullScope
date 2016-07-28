@@ -32,7 +32,11 @@ var Signup = React.createClass({
     console.log('A new user signed up!: ', newUser);
 
     newUser.save().done(function(){
-      router.navigate('dashboard', {trigger: true});
+      if(role === 'supporter'){
+        router.navigate('supportercreateprofile', {trigger: true});
+      }else{
+        router.navigate('patientfamilycreateprofile', {trigger: true});
+      }
     })
     .error(function(error){
       alert('You have an error. Check your log.');
@@ -58,7 +62,7 @@ var Signup = React.createClass({
 
                   <label className="radio-inline" htmlFor="role1">
                     <input onChange={this.handleChange} checked={this.state.role === 'recipient'} type="radio" name="role" id="role1" value="recipient"/>
-                    <span>Recipient</span>``
+                    <span>Patient Family</span>
                   </label>
 
                   <label className="radio-inline" htmlFor="role2">
@@ -90,11 +94,3 @@ var Signup = React.createClass({
 
 
 module.exports = Signup;
-
-
-// var form = e.target;
-// if (form.elements.recipient.value) {
-//   var role = 'recipient';
-// } else if (form.elements.supporter.value) {
-//   var role = 'supporter';
-// }

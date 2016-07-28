@@ -2,7 +2,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var Backbone = require('backbone');
-var $ = require('jquery');
 
 var User = require('./models/user');
 
@@ -10,8 +9,12 @@ var User = require('./models/user');
 var Signup = require('./components/signup.jsx');
 var Login = require('./components/login.jsx');
 var Dashboard = require('./components/dashboard.jsx');
-var RecipientCreateProfile = require('./components/recipient-create-profile.jsx');
+var PatientFamilyCreateProfile = require('./components/patient-family-create-profile.jsx');
+var PatientFamilyList = require('./components/patient-family-list.jsx');
+var PatientFamilyProfile = require('./components/patient-family-profile.jsx');
 var SupporterCreateProfile = require('./components/supporter-create-profile.jsx');
+var SupporterProfileList = require('./components/supporter-profile-list.jsx');
+var SupporterProfile = require('./components/supporter-profile.jsx');
 
 // router for entire app
 var Router = Backbone.Router.extend({
@@ -20,8 +23,12 @@ var Router = Backbone.Router.extend({
     'dashboard': 'dashboard',
     'signup': 'signup',
     'login': 'login',
-    'recipientcreateprofile': 'recipientCreateProfile',
-    'supportercreateprofile': 'supporterCreateProfile'
+    'patientfamilycreateprofile': 'patientFamilyCreateProfile',
+    'patientfamily': 'patientFamilyProfileList',
+    'patientfamily/:id': 'patientFamilyProfile',
+    'supportercreateprofile': 'supporterCreateProfile',
+    'supporter': 'supporterProfileList',
+    'supporter/:id': 'supporterProfile'
   },
   intialize: function(){
     var user = new User();
@@ -48,17 +55,46 @@ var Router = Backbone.Router.extend({
       document.getElementById('app')
     );
   },
-  recipientCreateProfile: function(){
+  patientFamilyCreateProfile: function(){
     var self=this;
     ReactDOM.render(
       React.createElement(RecipientCreateProfile, {router: self}),
       document.getElementById('app')
-    )
+    );
   },
+  patientFamilyProfileList: function(){
+    var self=this;
+    ReactDOM.render(
+      React.createElement(RecipientProfileList, {router: self}),
+      document.getElementById('app')
+    );
+  },
+  patientFamilyProfile: function(){
+    var self=this;
+    ReactDOM.render(
+      React.createElement(RecipientProfile, {router: self}),
+      document.getElementById('app')
+    );
+  },
+
   supporterCreateProfile: function(){
     var self=this;
     ReactDOM.render(
       React.createElement(SupporterCreateProfile, {router: self}),
+      document.getElementById('app')
+    );
+  },
+  supporterProfileList: function(){
+    var self=this;
+    ReactDOM.render(
+      React.createElement(SupporterProfileList, {router: self}),
+      document.getElementById('app')
+    );
+  },
+  supporterProfile: function(){
+    var self=this;
+    ReactDOM.render(
+      React.createElement(SupporterProfile, {router: self}),
       document.getElementById('app')
     );
   }

@@ -7,10 +7,21 @@ var PointerFieldModel = Backbone.Model.extend({
   }
 });
 
-var SupporterProfile = PointerFieldModel.extend({
+var SupporterProfileModel = PointerFieldModel.extend({
  idAttribute: 'objectId',
  urlRoot: 'http://mrice.herokuapp.com/classes/SupporterProfile',
 });
 
+var SupporterProfileCollection = Backbone.Collection.extend({
+  model: SupporterProfileModel,
+  url: 'http://mrice.herokuapp.com/classes/SupporterProfile',
+  // parse: function(serverResponse){
+  //   return serverResponse.results;
+  // }
+});
 
-module.exports = SupporterProfile;
+
+module.exports = {
+  'SupporterProfileModel': SupporterProfileModel,
+  'SupporterProfileCollection': SupporterProfileCollection
+};
