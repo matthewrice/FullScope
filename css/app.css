@@ -6389,25 +6389,34 @@ img {
 
 .recipient-family-name,
 .recipient-contact-name,
+.patient-name,
+.hospital-name,
+.cancer-type,
 .recipient-city,
 .recipient-state,
 .recipient-website {
   border-radius: 4px;
   border: 1px solid #bcbda4;
   padding: 2px 2px 2px 4px;
-  font-size: 15px; }
+  font-size: 12px; }
 
 .recipient-contact-name,
+.patient-name,
+.hospital-name,
+.cancer-type,
 .recipient-city,
 .recipient-state,
 .recipient-website {
-  margin-top: 7px; }
+  margin-top: 3px; }
 
 .recipient-family-name {
-  margin-top: 35px; }
+  margin-top: 8px; }
 
 .recipient-family-name,
 .recipient-contact-name,
+.patient-name,
+.hospital-name,
+.cancer-type,
 .recipient-website {
   width: 100%; }
 
@@ -6423,10 +6432,9 @@ img {
   display: inline; }
 
 .trumbowyg-box {
-  margin-top: 0;
-  margin-bottom: 0;
-  border-left: 2px solid #bcbda4;
-  border-right: 2px solid #bcbda4; }
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border: 2px solid #bcbda4; }
 
 .recipient-needs-form {
   border: 2px solid #bcbda4;
@@ -6436,6 +6444,10 @@ img {
   margin: 0 auto;
   margin-bottom: 15px;
   font-size: 15px; }
+
+.list-of-needs {
+  display: inline-block;
+  list-style: none; }
 
 .profile-pic,
 .contact-details {
