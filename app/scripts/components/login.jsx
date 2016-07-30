@@ -30,18 +30,22 @@ var Login = React.createClass({
       <div>
         <AppHeader />
 
-        <div className="row">
+        <div className="row signup-background">
           <div className="col-xs-offset-4 col-xs-4">
-            <div className="signup">
+            <div className="login">
 
               <form onSubmit={this.handleLogin} id="login">
                 <div className="signup-title">Log In</div>
-                <input name="username" id="user-email" className="user-email" type="email" placeholder="Email" /><br/>
-                <input name="password" id="user-password" className="user-password" type="password" placeholder="Password" /><br/>
-                <input type="submit" className="submit-signup" value="Log In" /><br/>
+                <input name="username" id="user-email" className="username-is-email" type="email" placeholder="Email" /><br/>
+                <input name="password" id="user-password" className="user-password user-login-submit" type="password" placeholder="Password" /><br/>
+                <input type="submit" className="submit-login" value="Log In" /><br/>
               </form>
 
-              <div className="optional-login">or</div>
+              <div className="optional-login">
+                <span className="line"></span>
+                <span className="or">Or</span>
+                <span className="line"></span>
+              </div>
 
               <button type="submit" className="login-via-facebook-button">
                 <i className="fa fa-facebook facebook-icon" aria-hidden="true"></i>
@@ -49,7 +53,7 @@ var Login = React.createClass({
               </button>
 
               <div className="signup-instead">
-                <span>Need an account? <a href="#signup">Sign Up</a></span>
+                <span>New to FullScope? <a href="#signup">Sign Up</a></span>
               </div>
 
             </div>

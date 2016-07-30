@@ -48,11 +48,11 @@ var Signup = React.createClass({
       <div>
         <AppHeader />
 
-        <div className="row">
+        <div className="row signup-background">
           <div className="col-xs-offset-4 col-xs-4">
             <div className="signup">
 
-              <form onSubmit={this.handleSignup} id="signup">
+              <form onSubmit={this.handleSignup} id="signup" className="signup-form">
                 <div className="signup-title">Sign up</div>
                 <input name="firstname" id="firstname" className="firstname" type="text" require="true" placeholder="First Name" /><br/>
                 <input name="lastname" id="lastname" className="lastname" type="text" require="true" placeholder="Last Name" /><br/>
@@ -62,10 +62,10 @@ var Signup = React.createClass({
 
                   <label className="radio-inline" htmlFor="role1">
                     <input onChange={this.handleChange} checked={this.state.role === 'recipient'} type="radio" name="role" id="role1" value="recipient"/>
-                    <span>Patient Family</span>
+                    <span className="patientFamily-radio-signup">Patient Family</span>
                   </label>
 
-                  <label className="radio-inline" htmlFor="role2">
+                  <label className="radio-inline supporter-radio-button" htmlFor="role2">
                     <input onChange={this.handleChange} checked={this.state.role === 'supporter'} type="radio" name="role" id="role2" value="supporter"/>
                     <span>Supporter</span>
                   </label>
@@ -73,15 +73,19 @@ var Signup = React.createClass({
                 <input type="submit" className="submit-signup" value="Sign up" /><br/>
               </form>
 
-              <div className="optional-login">or</div>
+              <div className="optional-login">
+                <span className="line"></span>
+                <span className="or">Or</span>
+                <span className="line"></span>
+              </div>
 
               <button type="submit" className="login-via-facebook-button">
                 <i className="fa fa-facebook facebook-icon" aria-hidden="true"></i>
-                <span className="facebook-button-text">Log in with facebook</span>
+                <span className="facebook-button-text">Log in with Facebook</span>
               </button>
 
               <div className="login-instead">
-                <span>Have an account? <a href="#login">Log In</a></span>
+                <span className="existing-user">Have an account? <a href="#login">Log In</a></span>
               </div>
 
             </div>

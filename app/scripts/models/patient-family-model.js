@@ -9,14 +9,17 @@ var PointerFieldModel = Backbone.Model.extend({
 var PatientFamily = PointerFieldModel.extend({
  idAttribute: 'objectId',
  urlRoot: 'http://mrice.herokuapp.com/classes/RecipientProfile',
+ defaults: {
+   'selectedNeeds': []
+ }
 });
 
 var PatientFamilyCollection = Backbone.Collection.extend({
   model: PatientFamily,
   url: 'http://mrice.herokuapp.com/classes/RecipientProfile',
-  // parse: function(serverResponse){
-  //   return serverResponse.results;
-  // }
+  parse: function(serverResponse){
+    return serverResponse.results;
+  }
 });
 
 

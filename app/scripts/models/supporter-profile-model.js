@@ -15,9 +15,9 @@ var SupporterProfileModel = PointerFieldModel.extend({
 var SupporterProfileCollection = Backbone.Collection.extend({
   model: SupporterProfileModel,
   url: 'http://mrice.herokuapp.com/classes/SupporterProfile',
-  // parse: function(serverResponse){
-  //   return serverResponse.results;
-  // }
+  parse: function(serverResponse){
+    return serverResponse.results;
+  }
 });
 
 

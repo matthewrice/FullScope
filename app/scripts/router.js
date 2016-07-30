@@ -30,9 +30,8 @@ var Router = Backbone.Router.extend({
     'supporter': 'supporterProfileList',
     'supporter/:id': 'supporterProfile'
   },
-  intialize: function(){
-    var user = new User();
-    user.restore();
+  initialize: function(){
+    User.restore();
   },
   dashboard: function(){
     var self=this;
@@ -58,21 +57,21 @@ var Router = Backbone.Router.extend({
   patientFamilyCreateProfile: function(){
     var self=this;
     ReactDOM.render(
-      React.createElement(RecipientCreateProfile, {router: self}),
+      React.createElement(PatientFamilyCreateProfile, {router: self}),
       document.getElementById('app')
     );
   },
   patientFamilyProfileList: function(){
     var self=this;
     ReactDOM.render(
-      React.createElement(RecipientProfileList, {router: self}),
+      React.createElement(PatientFamilyList, {router: self}),
       document.getElementById('app')
     );
   },
-  patientFamilyProfile: function(){
+  patientFamilyProfile: function(profileId){
     var self=this;
     ReactDOM.render(
-      React.createElement(RecipientProfile, {router: self}),
+      React.createElement(PatientFamilyProfile, {router: self, profileId: profileId}),
       document.getElementById('app')
     );
   },

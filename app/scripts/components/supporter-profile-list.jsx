@@ -18,26 +18,44 @@ var SupporterProfileList = React.createClass({
       self.setState({profileList: profileList});
     });
   },
+  handleClick: function(profile){
+    var router = this.props.router;
+    router.navigate('supporter/' + profile.get('objectId'), {trigger: true});
+  },
   render: function(){
     var profileList = this.state.profileList;
+    var self = this;
     console.log('profileList: ', profileList);
 
     var supporter = profileList.map(function(profile){
-      console.log(profile.get('objectid '));
       return (
-        <li key={profile.get('objectId')}>
-          <a href="#supporter/:id">
-            <div className="supporter-pic col-md-4">
-              {/*}<img className="pic" src="{profile.get('profilePic')}" />*/}
+        <li onClick={function(){self.handleClick(profile)}} key={profile.get('objectId')} className="col-md-offset-3 col-xs-6 supporter-profile-card">
+          <div className="supporter-pic col-md-4">
+            <img className="pic" src="images/chloe2.jpg" />
+          </div>
+          <div className="col-md-8 contact-details">
+            <div className="row">
+              <h3 className="col-md-12 supporterName-detail">
+                {profile.get('supporterName')}
+              </h3>
             </div>
-            <div className="contact-details col-md-8">
-              <div>{profile.get('companyName')}</div>
-              <div>{profile.get('familyName')}</div>
-              <div>{profile.get('contactName')}</div>
-              <div>{profile.get('website')}</div>
-              <div>{profile.get('blurb')}</div>
+            <div className="row">
+              <div>
+                <div className="col-md-4">Contact Name: </div>
+                <div className="col-md-8 contact-details">{profile.get('contactName')}</div>
+              </div>
+              <div className="detail">
+                <div className="col-md-4">Website: </div>
+                <div className="col-md-8 contact-details supporter-url">
+                  <a href={profile.get('website')}>{profile.get('website')}</a>
+                </div>
+              </div>
+              <div className="detail">
+                <div className="col-md-4">About Us: </div>
+                <div className="col-md-8 contact-details">{profile.get('blurb')}</div>
+              </div>
             </div>
-          </a>
+          </div>
         </li>
       );
     });
@@ -47,7 +65,7 @@ var SupporterProfileList = React.createClass({
         <AppHeader />
 
         <div className="row">
-          <ul className="col-xs-offset-3 col-xs-6">{supporter}</ul>
+          <ul className="supporter-list">{supporter}</ul>
         </div>
       </div>
     );

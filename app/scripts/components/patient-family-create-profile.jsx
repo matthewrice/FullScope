@@ -62,6 +62,9 @@ var PatientFamilyCreateProfile = React.createClass({
 
     patientFamily.set('familyName', this.state.familyName);
     patientFamily.set('contactName', this.state.contactName);
+    patientFamily.set('patientName', this.state.patientName);
+    patientFamily.set('hospitalName', this.state.hospitalName);
+    patientFamily.set('cancerType', this.state.cancerType);
     patientFamily.set('city', this.state.city);
     patientFamily.set('state', this.state.state);
     patientFamily.set('website', this.state.website);
@@ -71,7 +74,7 @@ var PatientFamilyCreateProfile = React.createClass({
     patientFamily.setPointer('recipient', recipient, '_User');
 
     patientFamily.save().done(function(){
-      console.log('Recipient Profile: ', recipientProfile);
+      console.log('patientFamily : ', patientFamily);
       router.navigate('patientfamily/:id', {trigger: true});
     });
   },

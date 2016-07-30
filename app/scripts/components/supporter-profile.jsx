@@ -1,6 +1,6 @@
 var React = require('react');
 
-var SupporterProfileModel = require('../models/recipient-profile-model').SupporterProfileModel;
+var SupporterProfileModel = require('../models/supporter-profile-model').SupporterProfileModel;
 var AppHeader = require('./app-header.jsx');
 
 

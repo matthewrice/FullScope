@@ -15,24 +15,31 @@ var User = Backbone.Model.extend({
       // var self=this;
       console.log(data);
       localStorage.setItem('user', JSON.stringify(loggedInUser.toJSON()));
-      jQuery.ajaxSetup({
-         beforeSend: function(xhr){
-           xhr.setRequestHeader("X-Parse-Application-Id", "tiyfrontendclass");
-           xhr.setRequestHeader("X-Parse-REST-API-Key", "demodayiscoming");
-           xhr.setRequestHeader("X-Parse-Session-Token", data.sessionToken);
-         }
-       });
+
       callbacks.success(loggedInUser);
 
     }).fail(function(error){
-      callbacks.error(loggedInUser, error);
+      //callbacks.error(loggedInUser, error);
     });
-  }
-},{
+  },
+  authenticate: function(sessionToken){
+    jQuery.ajaxSetup({
+       beforeSend: function(xhr){
+         xhr.setRequestHeader("X-Parse-Application-Id", "tiyfrontendclass");
+         xhr.setRequestHeader("X-Parse-REST-API-Key", "demodayiscoming");
+         if(sessionToken){
+           xhr.setRequestHeader("X-Parse-Session-Token", sessionToken);
+         }
+       }
+     });
+  },
   restore: function(){
-    var token = localStorage.getItem('sessionToken');
-    if(token) {
-      this.login({sessionToken: token});
+    var user = JSON.parse(localStorage.getItem('user'));
+    console.warn(user);
+    if(user) {
+      this.authenticate(user.sessionToken);
+    }else{
+      this.authenticate();
     }
   },
   invalidate: function(){

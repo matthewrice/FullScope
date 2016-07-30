@@ -6,18 +6,14 @@ var SupporterProfileModel = require('../models/supporter-profile-model').Support
 var SupporterCreateProfile = React.createClass({
   getInitialState: function(){
     return {
-      'companyName': '',
-      'familyName': '',
+      'supporterName': '',
       'contactName': '',
       'website': '',
       'blurb': ''
     }
   },
-  addSupporterCompanyName: function(e){
-    this.setState({'companyName': e.target.value});
-  },
-  addSupporterFamilyName: function(e){
-    this.setState({'familyName': e.target.value});
+  addSupporterName: function(e){
+    this.setState({'supporterName': e.target.value});
   },
   addSupporterContactName: function(e){
     this.setState({'contactName': e.target.value});
@@ -35,8 +31,7 @@ var SupporterCreateProfile = React.createClass({
     var router = this.props.router;
     var supporter = JSON.parse(localStorage.getItem('user'));
 
-    supporterProfile.set('companyName', this.state.companyName);
-    supporterProfile.set('familyName', this.state.familyName);
+    supporterProfile.set('supporterName', this.state.supporterName);
     supporterProfile.set('contactName', this.state.contactName);
     supporterProfile.set('website', this.state.website);
     supporterProfile.set('blurb', this.state.blurb);
@@ -61,9 +56,8 @@ var SupporterCreateProfile = React.createClass({
                   <img className="profile-image-upload-plus-icon" src="images/plainicon-plus-sign.svg" />
                 </div>
                 <div className="contact-details col-md-8">
-                  <input onChange={this.addSupporterCompanyName} name="companyName" id="companyName" className="company-name" type="text" placeholder="Company Name if applicable" /><br/>
-                  <input onChange={this.addSupporterFamilyName} name="familyName" id="familyName" className="family-name" type="text" placeholder="Family Name if applicable" /><br/>
-                  <input onChange={this.addSupporterContactName} name="supportername" id="contactName" className="supporter-name" type="text" placeholder="Contact Name" /><br/>
+                  <input onChange={this.addSupporterName} name="supporterName" id="supporterName" className="supporter-name" type="text" placeholder="Supporter name" /><br/>
+                  <input onChange={this.addSupporterContactName} name="supportername" id="contactName" className="contact-name" type="text" placeholder="Contact name if needed" /><br/>
                   <input onChange={this.addSupporterWebsite} name="supporterwebsite" id="website" className="supporter-website" type="url" placeholder="Website" /><br/>
                   <textarea onChange={this.addSupporterBlurb} name="blurb" id="blurb" className="blurb-input" placeholder="Tell us a little bit about you."/>
                 </div>

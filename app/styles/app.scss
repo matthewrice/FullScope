@@ -17,27 +17,40 @@ img {
   max-width: 100%;
 }
 
-////////////////////// APP HEADER /////////////////////
+
+//font-family: 'Play', sans-serif;
+//font-family: 'EB Garamond', serif;
+
+
+/////////////////////////////// APP HEADER /////////////////////////////////////
 .app-header{
-  margin-top: 20px;
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: rgb(117,171,189);
-  // border-bottom: 1px solid rgb(231,232,200);
+  background: -webkit-linear-gradient(top, rgb(255,255,255), rgb(233,233,233));
+  background: -moz-linear-gradient(top, rgb(255,255,255), rgb(233,233,233));
+  background: linear-gradient(top, rgb(255,255,255), rgb(233,233,233));
 
   a{
     text-decoration: none;
-    color: white;
-  }
+    color: black;
+    font-family: 'EB Garamond', serif;  }
 }
 
-.recipients-header-link{
- text-align: center;
+.patientfamily-link{
+
+  a{
+    padding-left: 10px;
+
+    .family-icon{
+      width: 50px;
+    }
+  }
 }
 
 .fullscope{
   text-align: center;
-  font-size: 30px;
+  font-size: 40px;
+  font-weight: bold;
 }
 
 .account-links{
@@ -45,24 +58,162 @@ img {
   padding-right: 0;
 }
 
+.user-account{
+  padding-top: 4px;
+  margin-right: 25px;
+  float: right;
+  width: 50px;
+}
+
+.signup-icon{
+  margin-right: 20px;
+  float: right;
+  width: 50px;
+}
+
 .login-header-link{
-  // margin-right: 15px;
+
+  i{
+    font-size: 35px;
+    margin-right: 25px;
+    float: right;
+  }
 }
 
 
+//////////////////////////////// SIGNUP & LOGIN /////////////////////////////////
+.signup-background{
+  background-image: url('../images/cancer-family.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 
-///////////////////////// SIGNUP /////////////////////////
+.signup,
+.login{
+  border: 1px solid rgb(188,189,164);
+  margin-top: 50px;
+  margin-bottom: 100px;
+  padding: 20px 30px 30px 30px;
+  background-color: rgba(255,255,255,0.5);
+
+  .signup-title{
+    font-family: 'Play', sans-serif;
+    font-size: 35px;
+    margin-bottom: 5px;
+    color: black;
+  }
+}
+
+*::-webkit-input-placeholder{
+  color: rgb(108,105,98);
+  font-family: 'Play', sans-serif;
+}
+*:-moz-placeholder{
+  color: rgb(108,105,98);
+  font-family: 'Play', sans-serif;
+}
+*::-moz-placeholder{
+  color: rgb(108,105,98);
+  font-family: 'Play', sans-serif;
+}
+*:-ms-input-placeholder{
+  color: rgb(108,105,98);
+  font-family: 'Play', sans-serif;
+}
+
+.firstname,
+.lastname,
+.username-is-email,
+.user-password{
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid rgb(255,255,255);
+  margin-bottom: 7px;
+  padding: 7px 2px 7px 7px;
+  background-color: rgba(255,255,255,0.5);
+  font-family: 'Play', sans-serif;
+  color: rgb(108,105,98);
+}
+
+.user-choices{
+  margin-bottom: 15px;
+  font-family: 'Play', sans-serif;
+}
+
+.patientFamily-radio-signup{
+  margin-right: 30px;
+}
+
+.user-login-submit{
+  margin-bottom: 30px;
+}
+
+.submit-signup,
+.submit-login{
+  width: 100%;
+  padding-top: 7px;
+  font-size: 15px;
+  font-family: 'Play', sans-serif;
+  padding-bottom: 7px;
+  border-radius: 5px;
+  border: 1px solid rgb(255,255,255);
+  margin-bottom: 25px;
+  color: rgb(255,255,255);
+  background-color: rgba(75,69,54,0.5);
+}
+
+.line{
+  display: inline-block;
+  border-bottom: 2px solid rgb(255,255,255);
+  margin-bottom: 4px;
+  width: 44.5%;
+}
+
+.or{
+  margin-left: 10px;
+  margin-right: 10px;
+  color: black;
+  font-family: 'Play', sans-serif;
+}
+
+.login-via-facebook-button{
+  margin-top: 25px;
+  margin-bottom: 35px;
+  width: 100%;
+  padding-top: 7px;
+  font-size: 15px;
+  font-family: 'Play', sans-serif;
+  padding-bottom: 7px;
+  border-radius: 5px;
+  border: 1px solid rgb(255,255,255);
+  background-color: rgba(59,89,152,0.7);
+  color: white;
+}
+
+.facebook-button-text{
+  margin-left: 10px;
+}
+
+.login-instead,
+.signup-instead{
+  border-top: 2px solid rgb(255,255,255);
+  padding-top: 30px;
+  text-align: center;
+  font-family: 'Play', sans-serif;
+  font-size: 15px;
+  color: black;
+
+  a{
+    text-decoration: none;
+    color: rgb(59,89,152);
+    font-weight: bold;
+  }
+}
 
 
-
-///////////////////////// LOGIN /////////////////////////
-
-
-
-/////////////////////// DASHBOARD ///////////////////////
+/////////////////////////////// DASHBOARD //////////////////////////////////////
 .identity{
   text-align: center;
-  // border-bottom: 1px solid rgb(231,232,200);
   margin: 0 auto;
   height: 225px;
   font-size: 20px;
@@ -73,7 +224,6 @@ img {
 
 .methods{
   text-align: center;
-  // border-bottom: 1px solid rgb(231,232,200);
   margin: 0 auto;
   height: 225px;
   font-size: 20px;
@@ -93,7 +243,7 @@ img {
 }
 
 
-///////////////////////////// RECIPIENT FORM////////////////////////////////////
+///////////////////////////// PATIENT FAMILY FORM///////////////////////////////
 .recipient-form-container{
   margin-top: 50px;
 }
@@ -158,7 +308,6 @@ img {
   margin-top: 15px;
   margin-bottom: 15px;
   border: 2px solid rgb(188,189,164);
-  // border-right: 2px solid rgb(188,189,164);
 }
 
 .recipient-needs-form{
@@ -255,4 +404,63 @@ img {
   background-color: rgba(53,175,199, 0.8);
   color: black;
   font-size: 20px;
+}
+
+
+////////////////// SUPPORTER LISTING & PATIENT FAMILY LISTING //////////////////
+.patientFamily-list-background{
+  background-color: rgb(247,245,242);
+}
+
+.patient-family-list,
+.supporter-list{
+  margin-top: 50px;
+  list-style: none;
+}
+
+.patientfamily-profile-card,
+.supporter-profile-card{
+  border: 2px solid rgb(188,189,164);
+  padding: 0;
+  margin-bottom: 15px;
+  background-color: white;
+}
+
+.patient-family-pic,
+.supporter-pic{
+  border-right: 2px solid rgb(188,189,164);
+  padding: 0;
+}
+
+.familyName-detail,
+.supporterName-detail{
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-family: 'EB Garamond', serif;
+}
+
+.contact-details{
+  padding-right: 15px;
+  font-family: 'Play', sans-serif;
+}
+
+.patientFamily-url{
+  a{
+    text-decoration: none;
+    color: rgb(59,89,152);
+  }
+}
+
+.supporter-url{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  a{
+    text-decoration: none;
+    color: rgb(59,89,152);
+  }
+}
+
+.detail{
+  padding-top: 25px;
 }
