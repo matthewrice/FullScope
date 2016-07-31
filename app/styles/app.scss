@@ -56,29 +56,38 @@ img {
 .account-links{
   text-align: center;
   padding-right: 0;
-}
+  padding-top: 12px;
 
-.user-account{
-  padding-top: 4px;
-  margin-right: 25px;
-  float: right;
-  width: 50px;
-}
-
-.signup-icon{
-  margin-right: 20px;
-  float: right;
-  width: 50px;
-}
-
-.login-header-link{
-
-  i{
-    font-size: 35px;
-    margin-right: 25px;
-    float: right;
+  .fontawesome-navbars{
+    font-size: 30px;
   }
 }
+
+.dropdown-menu{
+  right: 40px;
+}
+
+// .user-account{
+//   padding-top: 4px;
+//   margin-right: 25px;
+//   float: right;
+//   width: 50px;
+// }
+//
+// .signup-icon{
+//   margin-right: 20px;
+//   float: right;
+//   width: 50px;
+// }
+//
+// .login-header-link{
+//
+//   i{
+//     font-size: 35px;
+//     margin-right: 25px;
+//     float: right;
+//   }
+// }
 
 
 //////////////////////////////// SIGNUP & LOGIN /////////////////////////////////
@@ -430,6 +439,7 @@ img {
 .supporter-pic{
   border-right: 2px solid rgb(188,189,164);
   padding: 0;
+  // width: 100%;
 }
 
 .familyName-detail,
@@ -463,4 +473,22 @@ img {
 
 .detail{
   padding-top: 25px;
+}
+
+
+////////////////////// SUPPORTER & PATIENT FAMILY PROFILE //////////////////////
+.supporter-profile{
+  margin-top: 150px;
+}
+
+.supporter-title-and-name{
+  padding-top: 15px;
+}
+
+.supporter-detail{
+  margin-top: 20px;
+}
+
+.supporter-remaining-details{
+  padding-bottom: 15px;
 }

@@ -1,37 +1,40 @@
 var React = require('react');
+require('bootstrap-sass');
 
 
 var AppHeader = React.createClass({
 
+  toggleRightNavBar: function(){
+    $(document).ready(function() {
+      $('[data-toggle=offcanvas]').click(function() {
+        $('.row-offcanvas').toggleclassName('active');
+        $('.showhide').toggle();
+      });
+    });
+  },
   render: function(){
 
     return (
       <div>
         <nav className="row app-header">
-          <div className="col-xs-2 patientfamily-link">
-            <a href="#patientfamily">
-              <img className="family-icon" src="images/patient-family-link-icon.svg" />
-            </a>
-          </div>
-          <div className="col-xs-offset-3 col-xs-2 fullscope">
-            <a href="#dashboard">FullScope</a>
-          </div>
-          <div className="col-xs-offset-3 col-xs-2 account-links">
-            <span className="account-header-link">
-              <a href="#">
-                <img className="user-account" src="images/profile-icon.svg" />
+          <div className="nav nav-bar">
+            <div className="col-xs-2 patientfamily-link">
+              <a href="#patientfamily">
+                <img className="family-icon" src="images/patient-family-link-icon.svg" />
               </a>
-            </span>
-            <span className="login-header-link">
-              <a href="#login">
-                <i className="user-icon-header fa fa-user" aria-hidden="true"></i>
-              </a>
-            </span>
-            <span className="signup-header-link">
-              <a href="#signup">
-                <img className="signup-icon" src="images/signup-icon.svg" />
-              </a>
-              </span>
+            </div>
+            <div className="col-xs-9 fullscope">
+              <a href="#dashboard">FullScope</a>
+            </div>
+            <div className="col-xs-1 account-links">
+              <i className="fa fa-bars dropdown-toggle fontawesome-navbars" aria-hidden="true" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></i>
+              <ul className="dropdown-menu">
+                <li><a href="#signup">Sign Up</a></li>
+                <li><a href="#login">Log In</a></li>
+                <li><a href="#supporter">Supporters</a></li>
+                <li><a href="#patientfamily">Patient Families</a></li>
+              </ul>
+            </div>
           </div>
         </nav>
       </div>

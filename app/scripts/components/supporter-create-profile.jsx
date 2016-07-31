@@ -40,7 +40,7 @@ var SupporterCreateProfile = React.createClass({
 
     supporterProfile.save().done(function(){
       console.log('Supporter Profile: ', supporter);
-      router.navigate('supporter/:id', {trigger: true});
+      router.navigate('supporter/' + 'objectId', {trigger: true});
     });
   },
   render: function(){

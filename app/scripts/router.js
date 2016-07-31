@@ -12,6 +12,7 @@ var Dashboard = require('./components/dashboard.jsx');
 var PatientFamilyCreateProfile = require('./components/patient-family-create-profile.jsx');
 var PatientFamilyList = require('./components/patient-family-list.jsx');
 var PatientFamilyProfile = require('./components/patient-family-profile.jsx');
+var SupportPatientFamily = require('./components/support-patient-family.jsx');
 var SupporterCreateProfile = require('./components/supporter-create-profile.jsx');
 var SupporterProfileList = require('./components/supporter-profile-list.jsx');
 var SupporterProfile = require('./components/supporter-profile.jsx');
@@ -26,6 +27,7 @@ var Router = Backbone.Router.extend({
     'patientfamilycreateprofile': 'patientFamilyCreateProfile',
     'patientfamily': 'patientFamilyProfileList',
     'patientfamily/:id': 'patientFamilyProfile',
+    'support': 'supportPatientFamily',
     'supportercreateprofile': 'supporterCreateProfile',
     'supporter': 'supporterProfileList',
     'supporter/:id': 'supporterProfile'
@@ -54,10 +56,10 @@ var Router = Backbone.Router.extend({
       document.getElementById('app')
     );
   },
-  patientFamilyCreateProfile: function(){
+  patientFamilyCreateProfile: function(profileId){
     var self=this;
     ReactDOM.render(
-      React.createElement(PatientFamilyCreateProfile, {router: self}),
+      React.createElement(PatientFamilyCreateProfile, {router: self, profileId: profileId}),
       document.getElementById('app')
     );
   },
@@ -75,11 +77,17 @@ var Router = Backbone.Router.extend({
       document.getElementById('app')
     );
   },
-
-  supporterCreateProfile: function(){
+  supportPatientFamily: function(){
     var self=this;
     ReactDOM.render(
-      React.createElement(SupporterCreateProfile, {router: self}),
+      React.createElement(SupportPatientFamily, {router: self}),
+      document.getElementById('app')
+    );
+  },
+  supporterCreateProfile: function(profileId){
+    var self=this;
+    ReactDOM.render(
+      React.createElement(SupporterCreateProfile, {router: self, profileId: profileId}),
       document.getElementById('app')
     );
   },
@@ -90,10 +98,10 @@ var Router = Backbone.Router.extend({
       document.getElementById('app')
     );
   },
-  supporterProfile: function(){
+  supporterProfile: function(profileId){
     var self=this;
     ReactDOM.render(
-      React.createElement(SupporterProfile, {router: self}),
+      React.createElement(SupporterProfile, {router: self, profileId: profileId}),
       document.getElementById('app')
     );
   }
