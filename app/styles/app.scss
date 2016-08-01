@@ -26,31 +26,18 @@ img {
 .app-header{
   padding-top: 10px;
   padding-bottom: 10px;
-  background: -webkit-linear-gradient(top, rgb(255,255,255), rgb(233,233,233));
-  background: -moz-linear-gradient(top, rgb(255,255,255), rgb(233,233,233));
-  background: linear-gradient(top, rgb(255,255,255), rgb(233,233,233));
-
-  a{
-    text-decoration: none;
-    color: black;
-    font-family: 'EB Garamond', serif;  }
-}
-
-.patientfamily-link{
-
-  a{
-    padding-left: 10px;
-
-    .family-icon{
-      width: 50px;
-    }
-  }
+  background-color: rgb(59,89,152);
 }
 
 .fullscope{
   text-align: center;
+  font-family: 'EB Garamond', serif;
   font-size: 40px;
   font-weight: bold;
+  a{
+    color: rgb(255,255,255);
+    text-decoration: none;
+  }
 }
 
 .account-links{
@@ -58,36 +45,120 @@ img {
   padding-right: 0;
   padding-top: 12px;
 
+  i{
+    color: rgb(255,255,255);
+  }
+
   .fontawesome-navbars{
     font-size: 30px;
   }
 }
 
 .dropdown-menu{
-  right: 40px;
+  margin-top: 10px;
+  left: -50px;
+  background-color: rgb(255,255,255);
+
+  .menu{
+    font-size: 18px;
+    a{
+      color: rgb(96,96,96);
+      font-family: 'EB Garamond', serif;
+    }
+  }
 }
 
-// .user-account{
-//   padding-top: 4px;
-//   margin-right: 25px;
-//   float: right;
-//   width: 50px;
-// }
-//
-// .signup-icon{
-//   margin-right: 20px;
-//   float: right;
-//   width: 50px;
-// }
-//
-// .login-header-link{
-//
-//   i{
-//     font-size: 35px;
-//     margin-right: 25px;
-//     float: right;
-//   }
-// }
+
+/////////////////////////////// DASHBOARD //////////////////////////////////////
+.hello{
+  background-image: url('../images/helping-hands.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.purpose{
+  margin: 0 auto;
+  padding-top: 70px;
+  padding-bottom: 70px;
+  font-family: 'EB Garamond', serif;
+  font-size: 20px;
+  background-color: rgba(96,96,96,0.3);
+  color: rgb(255,255,255);
+
+  .purpose-title{
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-family: 'EB Garamond', serif;
+  }
+
+  .why-we-exist{
+    font-family: 'EB Garamond', serif;
+    margin-bottom: 0;
+    font-size: 20px;
+    line-height: 30px;
+
+    .emphasis{
+      font-style: italic;
+    }
+  }
+}
+
+.ways-to-get-involved{
+  background-color: rgba(176,176,176,0.5);
+  color: rgb(255,255,255);
+
+  .ideas-title{
+    margin-top: 0;
+    font-family: 'EB Garamond', serif;
+    text-align: center;
+    padding-top: 50px;
+  }
+
+  .ideas{
+    font-family: 'EB Garamond', serif;
+    font-size: 20px;
+    line-height: 35px;
+  }
+}
+
+.financial-burden{
+  padding-bottom: 50px;
+}
+
+.families{
+  color: rgb(255,255,255);
+  background-color: rgba(255,255,255,0.5);
+
+  .families-title{
+    padding-top: 50px;
+    padding-bottom: 30px;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'EB Garamond', serif;
+  }
+}
+
+.mini-profile-card-list-container{
+  padding: 0;
+
+  .mini-profile-card-list{
+    padding-left: 0;
+    list-style: none;
+
+    .mini-profile-cards{
+      padding-bottom: 50px;
+
+      .miniFamilyName{
+        margin-top: 5px;
+        text-align: center;
+        font-family: 'EB Garamond', serif;
+        font-size: 20px;
+      }
+    }
+  }
+}
 
 
 //////////////////////////////// SIGNUP & LOGIN /////////////////////////////////
@@ -218,39 +289,6 @@ img {
     font-weight: bold;
   }
 }
-
-
-/////////////////////////////// DASHBOARD //////////////////////////////////////
-.identity{
-  text-align: center;
-  margin: 0 auto;
-  height: 225px;
-  font-size: 20px;
-  padding-top: 100px;
-  background-color: rgb(69,203,120);
-  color: white;
-}
-
-.methods{
-  text-align: center;
-  margin: 0 auto;
-  height: 225px;
-  font-size: 20px;
-  padding-top: 100px;
-  background-color: rgb(52,122,140);
-  color: white;
-}
-
-.families{
-  text-align: center;
-  margin: 0 auto;
-  height: 225px;
-  font-size: 20px;
-  padding-top: 100px;
-  background-color: rgb(194,46,80);
-  color: white;
-}
-
 
 ///////////////////////////// PATIENT FAMILY FORM///////////////////////////////
 .recipient-form-container{
