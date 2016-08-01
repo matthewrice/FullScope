@@ -6336,32 +6336,101 @@ img {
 .app-header {
   padding-top: 10px;
   padding-bottom: 10px;
-  background: -webkit-linear-gradient(top, white, #e9e9e9);
-  background: linear-gradient(top, white, #e9e9e9); }
-  .app-header a {
-    text-decoration: none;
-    color: black;
-    font-family: 'EB Garamond', serif; }
-
-.patientfamily-link a {
-  padding-left: 10px; }
-  .patientfamily-link a .family-icon {
-    width: 50px; }
+  background-color: #3b5998; }
 
 .fullscope {
   text-align: center;
+  font-family: 'EB Garamond', serif;
   font-size: 40px;
   font-weight: bold; }
+  .fullscope a {
+    color: white;
+    text-decoration: none; }
 
 .account-links {
   text-align: center;
   padding-right: 0;
   padding-top: 12px; }
+  .account-links i {
+    color: white; }
   .account-links .fontawesome-navbars {
     font-size: 30px; }
 
 .dropdown-menu {
-  right: 40px; }
+  margin-top: 10px;
+  left: -50px;
+  background-color: white; }
+  .dropdown-menu .menu {
+    font-size: 18px; }
+    .dropdown-menu .menu a {
+      color: #606060;
+      font-family: 'EB Garamond', serif; }
+
+.hello {
+  background-image: url("../images/helping-hands.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.purpose {
+  margin: 0 auto;
+  padding-top: 70px;
+  padding-bottom: 70px;
+  font-family: 'EB Garamond', serif;
+  font-size: 20px;
+  background-color: rgba(96, 96, 96, 0.3);
+  color: white; }
+  .purpose .purpose-title {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-family: 'EB Garamond', serif; }
+  .purpose .why-we-exist {
+    font-family: 'EB Garamond', serif;
+    margin-bottom: 0;
+    font-size: 20px;
+    line-height: 30px; }
+    .purpose .why-we-exist .emphasis {
+      font-style: italic; }
+
+.ways-to-get-involved {
+  background-color: rgba(176, 176, 176, 0.5);
+  color: white; }
+  .ways-to-get-involved .ideas-title {
+    margin-top: 0;
+    font-family: 'EB Garamond', serif;
+    text-align: center;
+    padding-top: 50px; }
+  .ways-to-get-involved .ideas {
+    font-family: 'EB Garamond', serif;
+    font-size: 20px;
+    line-height: 35px; }
+
+.financial-burden {
+  padding-bottom: 50px; }
+
+.families {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.5); }
+  .families .families-title {
+    padding-top: 50px;
+    padding-bottom: 30px;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'EB Garamond', serif; }
+
+.mini-profile-card-list-container {
+  padding: 0; }
+  .mini-profile-card-list-container .mini-profile-card-list {
+    padding-left: 0;
+    list-style: none; }
+    .mini-profile-card-list-container .mini-profile-card-list .mini-profile-cards {
+      padding-bottom: 50px; }
+      .mini-profile-card-list-container .mini-profile-card-list .mini-profile-cards .miniFamilyName {
+        margin-top: 5px;
+        text-align: center;
+        font-family: 'EB Garamond', serif;
+        font-size: 20px; }
 
 .signup-background {
   background-image: url("../images/cancer-family.jpg");
@@ -6475,33 +6544,6 @@ img {
     text-decoration: none;
     color: #3b5998;
     font-weight: bold; }
-
-.identity {
-  text-align: center;
-  margin: 0 auto;
-  height: 225px;
-  font-size: 20px;
-  padding-top: 100px;
-  background-color: #45cb78;
-  color: white; }
-
-.methods {
-  text-align: center;
-  margin: 0 auto;
-  height: 225px;
-  font-size: 20px;
-  padding-top: 100px;
-  background-color: #347a8c;
-  color: white; }
-
-.families {
-  text-align: center;
-  margin: 0 auto;
-  height: 225px;
-  font-size: 20px;
-  padding-top: 100px;
-  background-color: #c22e50;
-  color: white; }
 
 .recipient-form-container {
   margin-top: 50px; }
