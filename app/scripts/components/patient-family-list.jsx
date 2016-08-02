@@ -34,7 +34,7 @@ var PatientFamilyList = React.createClass({
           <div className="patient-family-pic col-md-4">
             <img className="pic" src="images/chloe.jpg" />
           </div>
-          <div className="col-md-8 patientFamily-contact-info">
+          <div className="col-md-offset-1 col-md-7 patientFamily-contact-info">
             <div className="row">
               <h3 className="col-xs-12 familyName-detail">
                 {profile.get('familyName')}
@@ -63,7 +63,7 @@ var PatientFamilyList = React.createClass({
               </div>
               <div className="detail">
                 <div className="col-xs-4">Website:</div>
-                <div className="col-xs-8 contact-details patientFamily-url">
+                <div className="col-xs-8 contact-details patientFamily-profileList-url">
                   <a href={profile.get('website')}>Follow our journey</a>
                 </div>
               </div>

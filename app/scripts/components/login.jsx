@@ -15,8 +15,7 @@ var Login = React.createClass({
 
     User.login(username, password, {
       success: function(user){
-        console.log('User logged in: ', user);
-        router.navigate('dashboard', {trigger: true});
+        router.landingPage(user);
       },
       error: function(user, error){
         alert("Either the email or password you enter doesn't match our records.  Please try again.");
@@ -31,7 +30,7 @@ var Login = React.createClass({
         <AppHeader />
 
         <div className="row signup-background">
-          <div className="col-xs-offset-4 col-xs-4">
+          <div className="col-md-offset-4 col-md-4">
             <div className="login">
 
               <form onSubmit={this.handleLogin} id="login">

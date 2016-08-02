@@ -1,3 +1,4 @@
+var _ = require('underscore');
 var Backbone = require('backbone');
 
 
@@ -10,11 +11,30 @@ var PointerFieldModel = Backbone.Model.extend({
 var SupporterProfileModel = PointerFieldModel.extend({
  idAttribute: 'objectId',
  urlRoot: 'http://mrice.herokuapp.com/classes/SupporterProfile',
+ toJSON: function(){
+   var data = _.clone(this.attributes);
+
+   delete data.updatedAt;
+   delete data.createdAt;
+
+   return data;
+ }
 });
 
 var SupporterProfileCollection = Backbone.Collection.extend({
   model: SupporterProfileModel,
-  url: 'http://mrice.herokuapp.com/classes/SupporterProfile',
+  url: function(){
+    var url = 'http://mrice.herokuapp.com/classes/SupporterProfile';
+
+    if(this.whereClause){
+      url += this.whereClause;
+    }
+    return url;
+  },
+  query: function(objectId){
+    this.whereClause = '?where={"supporter":{"__type":"Pointer","className":"_User","objectId":"' + objectId + '"}}';
+    return this;
+  },
   parse: function(serverResponse){
     return serverResponse.results;
   }

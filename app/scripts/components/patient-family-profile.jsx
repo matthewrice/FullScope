@@ -2,7 +2,7 @@ var React = require('react');
 
 var PatientFamily = require('../models/patient-family-model').PatientFamily;
 var AppHeader = require('./app-header.jsx');
-
+var EditProfileButton = require('./detail-edit-button.jsx').EditProfileButton;
 
 var PatientFamilyProfile = React.createClass({
 
@@ -87,6 +87,8 @@ var PatientFamilyProfile = React.createClass({
               <h3 className="patient-family-needs">Our current needs </h3>
               <ul>{currentNeeds}</ul>
             </div>
+
+            <EditProfileButton profileId={this.props.profileId} href="#patientfamilyeditprofile"/>
           </div>
         </div>
       </div>

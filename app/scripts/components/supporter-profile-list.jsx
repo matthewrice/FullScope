@@ -29,11 +29,11 @@ var SupporterProfileList = React.createClass({
 
     var supporter = profileList.map(function(profile){
       return (
-        <li onClick={function(){self.handleClick(profile)}} key={profile.get('objectId')} className="col-md-offset-3 col-xs-6 supporter-profile-card">
+        <li onClick={function(){self.handleClick(profile)}} key={profile.get('objectId')} className="col-md-offset-3 col-md-6 supporter-profile-card">
           <div className="supporter-pic col-md-4">
             <img className="pic" src="images/chloe2.jpg" />
           </div>
-          <div className="col-md-8 contact-details">
+          <div className="col-md-offset-1 col-md-7 contact-details">
             <div className="row">
               <h3 className="col-md-12 supporterName-detail">
                 {profile.get('supporterName')}
@@ -46,7 +46,7 @@ var SupporterProfileList = React.createClass({
               </div>
               <div className="detail">
                 <div className="col-md-4">Website: </div>
-                <div className="col-md-8 contact-details supporter-url">
+                <div className="col-md-8 contact-details supporter-profileList-url">
                   <a href={profile.get('website')}>{profile.get('website')}</a>
                 </div>
               </div>

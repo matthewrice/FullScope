@@ -33,9 +33,9 @@ var Signup = React.createClass({
 
     newUser.save().done(function(){
       if(role === 'supporter'){
-        router.navigate('supportercreateprofile', {trigger: true});
+        router.navigate('supporterprofile', {trigger: true});
       }else{
-        router.navigate('patientfamilycreateprofile', {trigger: true});
+        router.navigate('patientfamilyprofile', {trigger: true});
       }
     })
     .error(function(error){
@@ -49,7 +49,7 @@ var Signup = React.createClass({
         <AppHeader />
 
         <div className="row signup-background">
-          <div className="col-xs-offset-4 col-xs-4">
+          <div className="col-md-offset-4 col-md-4">
             <div className="signup">
 
               <form onSubmit={this.handleSignup} id="signup" className="signup-form">

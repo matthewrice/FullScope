@@ -2,7 +2,7 @@ var React = require('react');
 
 var SupporterProfileModel = require('../models/supporter-profile-model').SupporterProfileModel;
 var AppHeader = require('./app-header.jsx');
-
+var EditProfileButton = require('./detail-edit-button.jsx').EditProfileButton;
 
 var SupporterProfile = React.createClass({
   getInitialState: function(){
@@ -30,32 +30,37 @@ var SupporterProfile = React.createClass({
       <div className="row">
         <AppHeader />
 
-        <div key={profile.get('objectId')} className="col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-10 supporter-profile-card supporter-profile">
-          <div className="supporter-pic col-md-4">
-            <img className="pic" src="images/chloe2.jpg" />
-          </div>
-          <div className="contact-details col-md-8">
-            <div className="row supporter-title-and-name">
-              <div className="col-md-4 hidden-sm hidden-xs supporter-detail">Supporter: </div>
-              <h3 className="col-md-8 col-sm-12 supporterName-detail">{profile.get('supporterName')}</h3>
+        <div className="col-md-12 supporter-singleview-profile-container">
+          <div key={profile.get('objectId')} className="col-md-offset-2 col-md-8 supporter-singleview-profile">
+            <div className="supporter-singleview-pic col-md-4">
+              <img className="pic" src="images/chloe2.jpg" />
             </div>
-            <div className="row supporter-remaining-details">
-              <div>
-                <div className="col-md-4 hidden-sm">Contact Name: </div>
-                <div className="col-md-8 col-sm-12 contact-details">{profile.get('contactName')}</div>
+            <div className="supporter-singleview-details col-md-8">
+              <div className="row">
+                <div className="col-md-4 hidden-sm singleview-label singleview-supporterName-label">Supporter: </div>
+                <h3 className="col-md-8 col-sm-12 singleview-supporterName singleview-corresponding-label-info">{profile.get('supporterName')}</h3>
               </div>
-              <div className="detail">
-                <div className="col-md-4 hidden-sm">Website: </div>
-                <div className="col-md-8 col-sm-12 contact-details supporter-url">
-                  <a href={profile.get('website')}>{profile.get('website')}</a>
+              <div className="row">
+                <div className="supporter-singleview-detail">
+                  <div className="col-md-4 hidden-sm singleview-label">Contact Name: </div>
+                  <div className="col-md-8 col-sm-12 singleview-corresponding-label-info">{profile.get('contactName')}</div>
+                </div>
+                <div className="supporter-singleview-detail">
+                  <div className="col-md-4 hidden-sm singleview-label">Website: </div>
+                  <div className="col-md-8 col-sm-12 singleview-corresponding-label-info singleview-url">
+                    <a href={profile.get('website')}>{profile.get('website')}</a>
+                  </div>
+                </div>
+                <div className="supporter-singleview-detail">
+                  <div className="col-md-4 hidden-sm singleview-label">About Us: </div>
+                  <div className="col-md-8 col-sm-12 singleview-corresponding-label-info">{profile.get('blurb')}</div>
                 </div>
               </div>
-              <div className="detail">
-                <div className="col-md-4 hidden-sm">About Us: </div>
-                <div className="col-md-8 col-sm-12 contact-details">{profile.get('blurb')}</div>
-              </div>
             </div>
           </div>
+#
+          <EditProfileButton profileId={this.props.profileId} href="#supportereditprofile"/>
+
         </div>
       </div>
     );

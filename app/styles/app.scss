@@ -69,11 +69,13 @@ img {
 }
 
 
-/////////////////////////////// DASHBOARD //////////////////////////////////////
-.hello{
-  background-image: url('../images/helping-hands.jpg');
-  background-repeat: no-repeat;
+/////////////////////////////// HOME PAGE //////////////////////////////////////
+.dashboard-background{
+  background-image: url('../images/cancer-family.jpg');
+  // background-size: contain;
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .purpose{
@@ -127,11 +129,12 @@ img {
 }
 
 .families{
-  color: rgb(255,255,255);
+  color: rgb(96,96,96);
   background-color: rgba(255,255,255,0.5);
+  padding-top: 50px;
+
 
   .families-title{
-    padding-top: 50px;
     padding-bottom: 30px;
     margin: 0 auto;
     text-align: center;
@@ -149,6 +152,7 @@ img {
 
     .mini-profile-cards{
       padding-bottom: 50px;
+      cursor: pointer;
 
       .miniFamilyName{
         margin-top: 5px;
@@ -166,6 +170,7 @@ img {
   background-image: url('../images/cancer-family.jpg');
   background-size: cover;
   background-repeat: no-repeat;
+  height: 100%;
 }
 
 .signup,
@@ -374,6 +379,17 @@ img {
 }
 
 ////////////////// PROFILE SETTINGS USED FOR BOTH USER FORMS ///////////////////
+.supporter-form-container{
+  background-color: rgba(96,96,96,0.3);
+  height: 650px;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.supporter-card{
+  margin-top: 200px;
+}
+
 .profile-pic,
 .contact-details{
   display: inline-block;
@@ -381,13 +397,13 @@ img {
 
 .profile-pic{
   height: 197px;
-  border-right: 2px solid rgb(188,189,164);
-  background-color: rgba(53,175,199, 0.8);
+  background-color: rgb(59,89,152);
+  padding: 0;
 
   .profile-image-upload-plus-icon{
     margin-top: 65px;
-    margin-left: 24%;
-    width: 70px;
+    margin-left: 35%;
+    width: 50px;
   }
 
   .profile-image-upload-camera{
@@ -399,25 +415,27 @@ img {
   margin-top: 15px;
 }
 
-.user-profile-create-button{
+.supporterProfile-create-button{
   width: 100%;
   border-radius: 6px;
   border: 0;
-  background-color: rgba(53,175,199, 0.8);
-  color: black;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: rgb(59,89,152);
+  color: rgb(255,255,255);
   font-size: 20px;
+  margin-bottom: 100px;
 }
 
 ///////////////////////////// SUPPORTER FORM////////////////////////////////////
-.supporter-card{
-  margin-top: 200px;
-  border: 2px solid rgb(188,189,164);
-  height: 200px;
+.supporter-contact-details{
+  background-color: white;
+  padding-top: 30px;
+  padding-bottom: 28px;
 }
 
-.company-name,
-.family-name,
 .supporter-name,
+.contact-name,
 .supporter-website,
 .blurb-input{
   width: 100%;
@@ -426,29 +444,21 @@ img {
   padding: 2px;
 }
 
-.company-name,
-.family-name,
 .supporter-name,
 .supporter-website,
 .blurb-input{
-  border: 1px solid rgb(188,189,164);
   padding-left: 4px;
 }
 
-.family-name,
-.supporter-name,
+.contact-name,
 .supporter-website,
 .blurb-input{
   margin-top: 5px;
 }
 
-.company-name{
-  margin-top: 16px;
-}
-
 .supporter-create-button{
   border: 0;
-  background-color: rgba(53,175,199, 0.8);
+  background-color: rgb(53,175,199);
   color: black;
   font-size: 20px;
 }
@@ -456,7 +466,8 @@ img {
 
 ////////////////// SUPPORTER LISTING & PATIENT FAMILY LISTING //////////////////
 .patientFamily-list-background{
-  background-color: rgb(247,245,242);
+  background-color: rgba(96,96,96,0.8);
+  padding-bottom: 40px;
 }
 
 .patient-family-list,
@@ -467,17 +478,15 @@ img {
 
 .patientfamily-profile-card,
 .supporter-profile-card{
-  border: 2px solid rgb(188,189,164);
   padding: 0;
   margin-bottom: 15px;
   background-color: white;
+  cursor: pointer;
 }
 
 .patient-family-pic,
 .supporter-pic{
-  border-right: 2px solid rgb(188,189,164);
   padding: 0;
-  // width: 100%;
 }
 
 .familyName-detail,
@@ -492,14 +501,14 @@ img {
   font-family: 'Play', sans-serif;
 }
 
-.patientFamily-url{
+.patientFamily-profileList-url{
   a{
     text-decoration: none;
     color: rgb(59,89,152);
   }
 }
 
-.supporter-url{
+.supporter-profileList-url{
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -515,18 +524,39 @@ img {
 
 
 ////////////////////// SUPPORTER & PATIENT FAMILY PROFILE //////////////////////
-.supporter-profile{
-  margin-top: 150px;
+.supporter-singleview-profile-container{
+  background-color: rgba(96,96,96,0.8);
 }
 
-.supporter-title-and-name{
-  padding-top: 15px;
+.supporter-singleview-profile{
+  margin-top: 230px;
+  margin-bottom: 274px;
 }
 
-.supporter-detail{
-  margin-top: 20px;
+.supporter-singleview-detail{
+
 }
 
-.supporter-remaining-details{
-  padding-bottom: 15px;
+.singleview-label{
+  font-family: 'Play', sans-serif;
+}
+
+.singleview-corresponding-label-info{
+  font-family: 'Play', sans-serif;
+}
+
+.singleview-supporterName-label{
+
+}
+
+.singleview-supporterName{
+  margin: 0 auto;
+  font-family: 'EB Garamond', serif;
+  font-size: 30px;
+}
+
+.singleview-url{
+  a{
+    text-decoration: none;
+  }
 }

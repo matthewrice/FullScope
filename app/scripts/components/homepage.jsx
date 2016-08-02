@@ -5,7 +5,7 @@ var AppHeader = require('./app-header.jsx');
 
 
 // top level dashboard.jsx component
-var Dashboard = React.createClass({
+var HomePage = React.createClass({
   getInitialState: function(){
     return {
       familyThumbnail: []
@@ -37,19 +37,19 @@ var Dashboard = React.createClass({
     });
 
     return(
-      <div>
+      <div className="">
         <AppHeader />
 
-        <div className="row hello">
+        <div className="row dashboard-background">
           <div className="">
             <div className="purpose col-md-12">
               <h3 className="purpose-title">Why We Exist</h3>
-              <p className="why-we-exist col-md-offset-2 col-md-8">Cancer is a burden that no family should have to bear on their own.
-                Full Scope exists to meet the needs a patient family may have, whether it be emotional,
-                financial, spiritual, or basic everyday needs. We are a community of people that understands
-                the impact cancer has on the entire family. Our goal is to provide a safe place
-                where patient families can share their story and have their <span className="emphasis">full scope </span>
-                of needs cared for.</p>
+              <p className="why-we-exist col-md-offset-2 col-md-8">Cancer is a burden that no family
+                should have to bear on their own. Full Scope exists to meet the needs of the whole family,
+                whether it be emotional, financial, spiritual, or basic everyday tasks. We are a community
+                of people who understand the impact cancer has on the entire family. Our goal is to provide
+                a safe place where patient families can share their story and have their
+                <span className="emphasis"> full scope </span>of needs cared for.</p>
             </div>
             <div className="ways-to-get-involved col-md-12">
               <div className="row">
@@ -60,7 +60,6 @@ var Dashboard = React.createClass({
                   <div className="ideas">- Invest your time</div>
                   <div className="ideas">- Donate your services</div>
                   <div className="ideas">- Offer spiritual support</div>
-                  <div className="ideas">- Meet a need</div>
                   <div className="ideas financial-burden">- Relieve a financial burden</div>
                 </div>
               </div>
@@ -84,4 +83,4 @@ var Dashboard = React.createClass({
 });
 
 
-module.exports = Dashboard;
+module.exports = HomePage;
