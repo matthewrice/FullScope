@@ -18,6 +18,17 @@ var SupporterProfileModel = PointerFieldModel.extend({
    delete data.createdAt;
 
    return data;
+ },
+ save: function(attributes, options){
+   var self = this;
+   options = options || {};
+   attributes = attributes || {};
+
+   this.set(attributes);
+
+   return Backbone.Model.prototype.save.call(this, attributes, options).then(function(){
+     localStorage.setItem('supporter', JSON.stringify(self.toJSON()));
+   });
  }
 });
 

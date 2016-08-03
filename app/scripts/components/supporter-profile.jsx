@@ -33,7 +33,7 @@ var SupporterProfile = React.createClass({
         <div className="col-md-12 supporter-singleview-profile-container">
           <div key={profile.get('objectId')} className="col-md-offset-2 col-md-8 supporter-singleview-profile">
             <div className="supporter-singleview-pic col-md-4">
-              <img className="pic" src="images/chloe2.jpg" />
+              <img className="pic" src={profile.get('profileImage')} />
             </div>
             <div className="supporter-singleview-details col-md-8">
               <div className="row">
@@ -57,10 +57,12 @@ var SupporterProfile = React.createClass({
                 </div>
               </div>
             </div>
+            <div className="row">
+              <div className="col-md-offset-7 col-md-2">
+                <EditProfileButton profileId={this.props.profileId} href="#supportereditprofile"/>
+              </div>
+            </div>
           </div>
-#
-          <EditProfileButton profileId={this.props.profileId} href="#supportereditprofile"/>
-
         </div>
       </div>
     );

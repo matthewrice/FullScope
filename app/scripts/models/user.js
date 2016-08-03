@@ -13,6 +13,16 @@ var User = Backbone.Model.extend({
     return data;
   }
 },{
+  signup: function(username, password, firstName, lastName, role, callbacks){
+    var signedUpUser = new User();
+    signedUpUser.set({'username': username, 'password': password, 'firstName': firstName, 'lastName': lastName, 'role': role});
+
+    signedUpUser.save().done(function(data){
+      localStorage.setItem('user', JSON.stringify(signedUpUser.toJSON()));
+
+      callbacks.success(signedUpUser);
+    }).fail(function(error){});
+  },
   login: function(username, password, callbacks, firstName, lastName, role){
     var loggedInUser = new User();
     var queryString = jQuery.param({'username': username, 'password': password, 'firstName': firstName, 'lastName': lastName, 'role': role});
@@ -23,9 +33,7 @@ var User = Backbone.Model.extend({
       localStorage.setItem('user', JSON.stringify(loggedInUser.toJSON()));
 
       callbacks.success(loggedInUser);
-    }).fail(function(error){
-      //callbacks.error(loggedInUser, error);
-    });
+    }).fail(function(error){});
   },
   authenticate: function(sessionToken){
     jQuery.ajaxSetup({

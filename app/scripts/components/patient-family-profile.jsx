@@ -44,7 +44,7 @@ var PatientFamilyProfile = React.createClass({
           <div className="">
             <div className="recipient-card">
               <div className="profile-pic col-md-4">
-                <img src="images/chloe.jpg" />
+                <img src={profile.get('profileImage')} />
               </div>
               <div className="col-md-8 patientFamily-contact-info">
                 <div className="row">

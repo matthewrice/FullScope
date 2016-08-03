@@ -2,10 +2,8 @@ var React = require('react');
 var trumbowyg = require('trumbowyg');
 // console.log('trumbowyg: ', trumbowyg);
 
-var AppHeader = require('./app-header.jsx');
 var PatientFamily = require('../models/patient-family-model').PatientFamily;
-
-
+var AppHeader = require('./app-header.jsx');
 var PatientFamilyCreateEditProfile = React.createClass({
 
   getInitialState: function(){
@@ -64,8 +62,8 @@ var PatientFamilyCreateEditProfile = React.createClass({
   },
   handleSubmit: function(e){
     e.preventDefault();
-    console.log(this.state.selectedNeeds);
     var patientFamily = this.state.patientFamily;
+
     var router = this.props.router;
     var recipient = JSON.parse(localStorage.getItem('user'));
 
@@ -79,21 +77,17 @@ var PatientFamilyCreateEditProfile = React.createClass({
     patientFamily.set('website', this.state.website);
     patientFamily.set('story', jQuery('#story').trumbowyg('html'));
     patientFamily.set('selectedNeeds', this.state.selectedNeeds);
-
+    patientFamily.set('profileImage', this.state.picUrl);
     patientFamily.setPointer('recipient', recipient, '_User');
 
     patientFamily.save().done(function(){
-      console.log('patientFamily : ', patientFamily);
+      console.log('The PatientFamily profile has been saved: ', patientFamily);
       router.navigate('patientfamily/' + patientFamily.get('objectId'), {trigger: true});
     });
   },
   componentDidMount: function(){
     jQuery.trumbowyg.svgPath = 'fonts/icons.svg';
     jQuery('#story').trumbowyg();
-  },
-  deleteUserProfile: function(){
-    console.log("User Profile Deleted");
-    console.log('This.state: ', this.state);
   },
   render: function(){
     var self = this;
@@ -132,7 +126,7 @@ var PatientFamilyCreateEditProfile = React.createClass({
 
               <div className="recipient-card">
                 <div className="profile-pic col-md-4">
-                  <img className="profile-image-upload-plus-icon" src="images/plainicon-plus-sign.svg" />
+                  <img className="profile-image-upload-plus-icon" src={this.state.picUrl} />
                 </div>
 
                 <div className="contact-details col-md-8">
@@ -163,9 +157,8 @@ var PatientFamilyCreateEditProfile = React.createClass({
               <div className="col-md-offset-2 col-md-8 create-button-container">
                 <input type="submit" className="user-profile-create-button" value="Save Profile" />
               </div>
-
+              <input onChange={this.handleImageChange} type="file" />
             </form>
-            <button onClick={this.deleteUserProfile} className="delete-account-button">Delete Account</button>
 
           </div>
         </div>

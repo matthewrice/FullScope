@@ -27,20 +27,17 @@ var Signup = React.createClass({
 
     var router = this.props.router;
 
-    var newUser = new User();
-    newUser.set({'username': username, 'password': password, 'firstName': firstName, 'lastName': lastName, 'role': role});
-    console.log('A new user signed up!: ', newUser);
-
-    newUser.save().done(function(){
-      if(role === 'supporter'){
-        router.navigate('supporterprofile', {trigger: true});
-      }else{
-        router.navigate('patientfamilyprofile', {trigger: true});
+    User.signup(username, password, firstName, lastName, role, {
+      success: function(){
+        if(role === 'supporter'){
+          router.navigate('supporterprofile', {trigger: true});
+        }else{
+          router.navigate('patientfamilyprofile', {trigger: true});
+        }
+      },
+      error: function(){
+        alert("Check your console.");
       }
-    })
-    .error(function(error){
-      alert('You have an error. Check your log.');
-      console.log('Check error message: ', error);
     });
   },
   render: function(){

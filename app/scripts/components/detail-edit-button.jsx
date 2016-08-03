@@ -6,16 +6,13 @@ var EditProfileButton = React.createClass({
   render: function(){
     var currentUser = User.currentUser();
 
-    console.log(currentUser.get('profile').objectId);
-    console.log(this.props.profileId);
+    console.log(currentUser);
 
-    if(currentUser.get('profile').objectId != this.props.profileId){
-      return <div />
+    if(currentUser.get('profile') && currentUser.get('profile').objectId === this.props.profileId){
+      return <a href={this.props.href}><button>Edit Profile</button></a>  
     }
 
-    return (
-      <a href={this.props.href}><button>Edit Profile</button></a>
-    )
+    return <div />
   }
 });
 
