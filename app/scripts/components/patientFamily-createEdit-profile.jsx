@@ -1,9 +1,14 @@
 var React = require('react');
 var trumbowyg = require('trumbowyg');
-// console.log('trumbowyg: ', trumbowyg);
 
 var PatientFamily = require('../models/patient-family-model').PatientFamily;
+var File = require('../models/file').File;
 var AppHeader = require('./app-header.jsx');
+
+
+/*
+ * This component allows the Patient Family to both create and edit their profile.
+ */
 var PatientFamilyCreateEditProfile = React.createClass({
 
   getInitialState: function(){
@@ -13,7 +18,6 @@ var PatientFamilyCreateEditProfile = React.createClass({
     var state = jQuery.extend({}, patientFamily.toJSON(), {
       patientFamily: patientFamily
     });
-    console.log(state);
     return state;
   },
   addFamilyName: function(e){
@@ -40,6 +44,12 @@ var PatientFamilyCreateEditProfile = React.createClass({
   addWebsite: function(e){
     this.setState({'website': e.target.value});
   },
+
+  /*
+   * the following method, handleSelectedNeeds, adds the checked "need" into an
+   * array called, selectedNeeds.  If a need is not selected, it will be removed
+   * from the list of needs.
+   */
   handleSelectedNeeds: function(e){
     if(e.target.checked === true){
       this.state.selectedNeeds.push(e.target.value);
@@ -58,6 +68,7 @@ var PatientFamilyCreateEditProfile = React.createClass({
     file.set('data', profilePic);
     file.save().done(function(){
       self.setState({'picUrl': file.get('url')});
+      console.log('This family uploaded a new image.');
     });
   },
   handleSubmit: function(e){
@@ -81,10 +92,15 @@ var PatientFamilyCreateEditProfile = React.createClass({
     patientFamily.setPointer('recipient', recipient, '_User');
 
     patientFamily.save().done(function(){
-      console.log('The PatientFamily profile has been saved: ', patientFamily);
+      console.log('The following Patient Family profile has been saved: ', patientFamily.get('objectId'));
       router.navigate('patientfamily/' + patientFamily.get('objectId'), {trigger: true});
     });
   },
+
+  /*
+   * Trumbowyg is a WYSWYG editor that I included in my app so the Patient Family
+   * could style their family story.
+   */
   componentDidMount: function(){
     jQuery.trumbowyg.svgPath = 'fonts/icons.svg';
     jQuery('#story').trumbowyg();
@@ -119,17 +135,17 @@ var PatientFamilyCreateEditProfile = React.createClass({
       <div className="row">
         <AppHeader />
 
-        <div className="col-xs-offset-3 col-xs-6">
+        <div className="col-md-offset-2 col-md-8">
           <div className="recipient-form-container">
 
-            <form onSubmit={this.handleSubmit} id="recipient-form">
+            <form onSubmit={this.handleSubmit} id="recipient-form" className="col-md-12">
 
               <div className="recipient-card">
-                <div className="profile-pic col-md-4">
-                  <img className="profile-image-upload-plus-icon" src={this.state.picUrl} />
+                <div className="profile-pic col-md-4 col-xs-12">
+                  <img className="patientFamily-profileImage-upload" src={this.state.picUrl} />
                 </div>
 
-                <div className="contact-details col-md-8">
+                <div className="patientFamily-contact-details col-md-offset-1 col-md-6 col-xs-12">
                   <input onChange={this.addFamilyName} id="familyName" value={this.state.familyName} className="recipient-family-name" type="text" placeholder="Your Family Name" /><br/>
                   <input onChange={this.addContactName} id="contactName" value={this.state.contactName} className="recipient-contact-name" type="text" placeholder="Contact Name" /><br/>
                   <input onChange={this.addPatientName} id="patientName" value={this.state.patientName} className="patient-name" type="text" placeholder="Patient Name" /><br/>
@@ -140,7 +156,8 @@ var PatientFamilyCreateEditProfile = React.createClass({
                     <input onChange={this.addState} id="state" value={this.state.state} className="recipient-state" type="text" placeholder="State" />
                   </div>
                   <input onChange={this.addWebsite} id="website" value={this.state.website} className="recipient-website" type="url" placeholder="Website" /><br/>
-                </div>
+                  <input onChange={this.handleImageChange} type="file" />
+              </div>
               </div>
 
               <div className="recipient-story-form">
@@ -154,10 +171,9 @@ var PatientFamilyCreateEditProfile = React.createClass({
                 </ul>
               </div>
 
-              <div className="col-md-offset-2 col-md-8 create-button-container">
-                <input type="submit" className="user-profile-create-button" value="Save Profile" />
+              <div className="col-md-offset-3 col-md-6 create-button-container">
+                <input type="submit" className="patientFamily-createButton" value="Save Profile" />
               </div>
-              <input onChange={this.handleImageChange} type="file" />
             </form>
 
           </div>

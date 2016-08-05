@@ -3,11 +3,15 @@ require('bootstrap-sass');
 
 var User = require('../models/user');
 
-
+/*
+ * AppHeader is the header component.  It shares the app title with the User and
+ * allows the User to navigate throughout the app.
+ */
 var AppHeader = React.createClass({
 
   handleLogOut: function(){
     localStorage.clear();
+    console.log('The User logged out.');
   },
   render: function(){
 
@@ -15,10 +19,10 @@ var AppHeader = React.createClass({
       <div>
         <nav className="row app-header">
           <div className="nav nav-bar">
-            <div className="col-xs-offset-1 col-xs-10 fullscope">
+            <div className="col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-9 col-xs-offset-3 col-xs-6 fullscope">
               <a href="#homepage">FullScope</a>
             </div>
-            <div className="col-xs-1 account-links">
+            <div className="col-md-1 col-sm-2 col-xs-3 account-links">
               <i className="fa fa-bars dropdown-toggle fontawesome-navbars" aria-hidden="true" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></i>
               <ul className="dropdown-menu">
                 <li className="menu"><a href="#signup">Sign Up</a></li>

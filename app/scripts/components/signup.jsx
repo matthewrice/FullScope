@@ -5,7 +5,10 @@ var User = require('../models/user');
 var AppHeader = require('./app-header.jsx');
 
 
-
+/*
+ * This component allows a new User to sign up and routes them to the appropriate
+ * create profile form based on their role (Patient Family or Profile).
+ */
 var Signup = React.createClass({
   getInitialState: function(){
     return {
@@ -13,7 +16,6 @@ var Signup = React.createClass({
     };
   },
   handleChange: function(e){
-    console.log('hi');
     this.setState({role: e.target.value});
   },
   handleSignup: function(e){
@@ -30,13 +32,16 @@ var Signup = React.createClass({
     User.signup(username, password, firstName, lastName, role, {
       success: function(){
         if(role === 'supporter'){
+          console.log('A Supporter signed up!');
           router.navigate('supporterprofile', {trigger: true});
         }else{
+          console.log('A Patient Family signed up!');
           router.navigate('patientfamilyprofile', {trigger: true});
         }
       },
       error: function(){
         alert("Check your console.");
+        console.log('The following error occured: ', error);
       }
     });
   },
@@ -46,7 +51,7 @@ var Signup = React.createClass({
         <AppHeader />
 
         <div className="row signup-background">
-          <div className="col-md-offset-4 col-md-4">
+          <div className="col-lg-offset-4 col-lg-4 col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8">
             <div className="signup">
 
               <form onSubmit={this.handleSignup} id="signup" className="signup-form">
@@ -69,17 +74,6 @@ var Signup = React.createClass({
                 </div>
                 <input type="submit" className="submit-signup" value="Sign up" /><br/>
               </form>
-
-              <div className="optional-login">
-                <span className="line"></span>
-                <span className="or">Or</span>
-                <span className="line"></span>
-              </div>
-
-              <button type="submit" className="login-via-facebook-button">
-                <i className="fa fa-facebook facebook-icon" aria-hidden="true"></i>
-                <span className="facebook-button-text">Log in with Facebook</span>
-              </button>
 
               <div className="login-instead">
                 <span className="existing-user">Have an account? <a href="#login">Log In</a></span>

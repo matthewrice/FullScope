@@ -4,7 +4,10 @@ var AppHeader = require('./app-header.jsx');
 var User = require('../models/user');
 
 
-// top level login.jsx component
+/*
+ * Login handles the log in for my users.  It authenticates the User, keeps more
+ * than 1 login session from occuring, and routes the User based on their "role".
+ */
 var Login = React.createClass({
   handleLogin: function(e){
     e.preventDefault();
@@ -13,13 +16,18 @@ var Login = React.createClass({
 
     var router = this.props.router;
 
+    {/*
+      * the landingPage is a method in my router that routes the User to the
+      * appropriate profile page based on their role (Patient Family or
+      * Supporter).
+      */}
     User.login(username, password, {
       success: function(user){
         router.landingPage(user);
       },
       error: function(user, error){
         alert("Either the email or password you enter doesn't match our records.  Please try again.");
-        console.log('Check error message: ', error);
+        console.log('You got the following error when you tried to log in: ', error);
       }
     });
   },
@@ -39,17 +47,6 @@ var Login = React.createClass({
                 <input name="password" id="user-password" className="user-password user-login-submit" type="password" placeholder="Password" /><br/>
                 <input type="submit" className="submit-login" value="Log In" /><br/>
               </form>
-
-              <div className="optional-login">
-                <span className="line"></span>
-                <span className="or">Or</span>
-                <span className="line"></span>
-              </div>
-
-              <button type="submit" className="login-via-facebook-button">
-                <i className="fa fa-facebook facebook-icon" aria-hidden="true"></i>
-                <span className="facebook-button-text">Log in with facebook</span>
-              </button>
 
               <div className="signup-instead">
                 <span>New to FullScope? <a href="#signup">Sign Up</a></span>
