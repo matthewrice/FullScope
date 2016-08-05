@@ -77,7 +77,7 @@ var SupporterCreateEditProfile = React.createClass({
                 <input onChange={this.addSupporterName} value={this.state.supporterName} name="supporterName" id="supporterName" className="supporterDetail supporter-name" type="text" placeholder="Supporter name" /><br/>
                 <input onChange={this.addSupporterContactName} value={this.state.contactName} name="contactName" id="contactName" className="supporterDetail contact-name" type="text" placeholder="Contact name if needed" /><br/>
                 <input onChange={this.addSupporterWebsite} value={this.state.website} name="supporterwebsite" id="website" className="supporterDetail supporter-website" type="url" placeholder="Website" /><br/>
-                <textarea onChange={this.addSupporterBlurb} value={this.state.blurb} name="blurb" id="blurb" className="supporterDetail blurb-input" maxLength="120" placeholder="Tell us a little bit about you."/>
+                <textarea onChange={this.addSupporterBlurb} value={this.state.blurb} name="blurb" id="blurb" className="supporterDetail blurb-input" maxLength="300" placeholder="Tell us a little bit about you."/>
                 <input onChange={this.handleImageChange} type="file" />
               </div>
             </div>

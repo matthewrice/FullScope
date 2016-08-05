@@ -10,7 +10,7 @@ var PointerFieldModel = Backbone.Model.extend({
 
 var PatientFamily = PointerFieldModel.extend({
  idAttribute: 'objectId',
- urlRoot: 'http://mrice.herokuapp.com/classes/RecipientProfile',
+ urlRoot: 'https://mrice.herokuapp.com/classes/RecipientProfile',
  defaults: {
    'selectedNeeds': []
  },
@@ -38,7 +38,7 @@ var PatientFamily = PointerFieldModel.extend({
 var PatientFamilyCollection = Backbone.Collection.extend({
   model: PatientFamily,
   url: function(){
-    var url = 'http://mrice.herokuapp.com/classes/RecipientProfile';
+    var url = 'https://mrice.herokuapp.com/classes/RecipientProfile';
 
     if(this.whereClause){
       url += this.whereClause;

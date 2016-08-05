@@ -76,18 +76,28 @@ img {
 /////////////////////////////// HOME PAGE //////////////////////////////////////
 .purpose-statement-background{
   display: table;
-  background-image: url('../images/cancer-family.jpg');
+  background-image: url('../images/cancer-family2.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   height: 100vh;
 }
 
+.intro-Statement{
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  color: rgb(0,0,0);
+  font-size: 40px;
+  font-family: 'EB Garamond', serif;
+  font-weight: bold;
+}
+
 .ways-to-get-involved{
   padding-top: 50px;
   padding-bottom: 50px;
-  background-color: rgba(176,176,176,0.8);
-  color: rgb(255,255,255);
+  background-color: rgb(176,176,176);
+  color: rgb(0,0,0);
   text-align: center;
   font-family: 'EB Garamond', serif;
 

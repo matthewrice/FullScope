@@ -10,7 +10,7 @@ var PointerFieldModel = Backbone.Model.extend({
 
 var SupporterProfileModel = PointerFieldModel.extend({
  idAttribute: 'objectId',
- urlRoot: 'http://mrice.herokuapp.com/classes/SupporterProfile',
+ urlRoot: 'https://mrice.herokuapp.com/classes/SupporterProfile',
  toJSON: function(){
    var data = _.clone(this.attributes);
 
@@ -35,7 +35,7 @@ var SupporterProfileModel = PointerFieldModel.extend({
 var SupporterProfileCollection = Backbone.Collection.extend({
   model: SupporterProfileModel,
   url: function(){
-    var url = 'http://mrice.herokuapp.com/classes/SupporterProfile';
+    var url = 'https://mrice.herokuapp.com/classes/SupporterProfile';
 
     if(this.whereClause){
       url += this.whereClause;

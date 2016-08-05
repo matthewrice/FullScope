@@ -45,6 +45,7 @@ var HomePage = React.createClass({
         <div className="row">
           <div className="">
             <div className="purpose-statement-background col-md-12">
+              <span className="intro-Statement">Cancer is a burden that no family should have to bear on their own.</span>
             </div>
             <div className="ways-to-get-involved col-md-12">
               <div>

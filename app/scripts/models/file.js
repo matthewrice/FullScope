@@ -6,7 +6,7 @@ var File = Backbone.Model.extend({
     name: 'default.jpg'
   },
   urlRoot: function(){
-    return 'http://mrice.herokuapp.com/files/'+ encodeURIComponent(this.get('name'));
+    return 'https://mrice.herokuapp.com/files/'+ encodeURIComponent(this.get('name'));
   },
   save: function(attributes, options){
     options = options || {};
